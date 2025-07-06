@@ -104,7 +104,7 @@ func enrichBackupArgs(backupCmd *exec.Cmd, xtrabackupExtraDirectory string, isFu
 		tracelog.ErrorLogger.Fatalf("PrevBackupInfo is null")
 	}
 	// -–extra-lsndir=DIRECTORY - save an extra copy of the xtrabackup_checkpoints and xtrabackup_info files in this directory.
-	//injectCommandArgument(backupCmd, "--extra-lsndir="+xtrabackupExtraDirectory)
+	injectCommandArgument(backupCmd, "--extra-lsndir="+xtrabackupExtraDirectory)
 
 	if !isFullBackup && (*prevBackupInfo != PrevBackupInfo{} && prevBackupInfo.sentinel.LSN != nil) {
 		// –-incremental-lsn=LSN
