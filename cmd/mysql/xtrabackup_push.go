@@ -57,6 +57,7 @@ var (
 				userData = viper.GetString(conf.SentinelUserDataSetting)
 			}
 
+			tracelog.InfoLogger.Print(fullBackup, backupCmd)
 			mysql.HandleBackupPush(
 				folder,
 				uploader,
